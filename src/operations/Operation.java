@@ -10,8 +10,8 @@ public interface Operation
   // Could change to double for divide
   int compute(int first, int second);
 
-  default String format()
+  default String format(int value)
   {
-    return getName() + ": ";
+    return getName() + ": " + value;
   };
 }
