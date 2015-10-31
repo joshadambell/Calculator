@@ -1,6 +1,5 @@
 package operations;
 
-import java.util.List;
 
 public interface Operation
 {
@@ -8,5 +7,5 @@ public interface Operation
 
   String getOperand();
 
-  int compute(List<Integer> values);
+  int compute(int first, int second);
 }

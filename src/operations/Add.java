@@ -1,25 +1,18 @@
 package operations;
 
-import java.util.List;
-
 import lombok.Getter;
 
 public class Add implements Operation
 {
   @Getter
-  private String name;
+  private final String name = "add";
 
   @Getter
-  private String operand;
+  private final String operand = "+";
 
   @Override
-  public int compute(List<Integer> values)
+  public int compute(int first, int second)
   {
-    int sum = 0;
-    for (final Integer v : values)
-    {
-      sum += v;
-    }
-    return sum;
+    return first + second;
   }
 }
