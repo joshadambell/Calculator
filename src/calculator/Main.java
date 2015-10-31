@@ -9,30 +9,47 @@ import operations.Sub;
 
 public class Main
 {
+  final static CalculationEngine engine =
+      new CalculationEngine(new Add(), new Sub(), new Mul(), new Div());
+
+  // Input format: op 1 2 or 1 2 op
   public static void main(String[] args)
   {
-    final CalculationEngine engine =
-        new CalculationEngine(new Add(), new Sub(), new Mul(), new Div());
-
-    final String operation = args[0];
     try
     {
+      final String operation = args[0];
       final int first = Integer.parseInt(args[1]);
       final int second = Integer.parseInt(args[2]);
 
-      final Optional<Integer> value = engine.compute(operation, first, second);
-      if (value.isPresent())
-      {
-        System.out.println(format(operation, value.get()));
-      }
-      else
-      {
-        System.out.println("Invalid operation");
-      }
+      compute(operation, first, second);
     }
     catch (final NumberFormatException e)
     {
-      System.out.println("All inputs are not numbers");
+      try
+      {
+        final int first = Integer.parseInt(args[0]);
+        final int second = Integer.parseInt(args[1]);
+        final String operation = args[2];
+
+        compute(operation, first, second);
+      }
+      catch (final NumberFormatException e1)
+      {
+        System.out.println("Invalid " + args);
+      }
+    }
+  }
+
+  private static void compute(String operation, int first, int second)
+  {
+    final Optional<Integer> value = engine.compute(operation, first, second);
+    if (value.isPresent())
+    {
+      System.out.println(format(operation, value.get()));
+    }
+    else
+    {
+      System.out.println("Invalid operation");
     }
   }
 
