@@ -7,5 +7,11 @@ public interface Operation
 
   String getOperand();
 
+  // Could change to double for divide
   int compute(int first, int second);
+
+  default String format()
+  {
+    return getName() + ": ";
+  };
 }
