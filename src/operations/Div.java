@@ -5,7 +5,7 @@ import lombok.Getter;
 public class Div implements Operation
 {
   @Getter
-  private final String name = "div";
+  private final String operation = "div";
 
   @Getter
   private final String operand = "/";

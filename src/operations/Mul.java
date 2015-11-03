@@ -5,7 +5,7 @@ import lombok.Getter;
 public class Mul implements Operation
 {
   @Getter
-  private final String name = "mul";
+  private final String operation = "mul";
 
   @Getter
   private final String operand = "*";

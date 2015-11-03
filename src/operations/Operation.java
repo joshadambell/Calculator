@@ -3,7 +3,7 @@ package operations;
 
 public interface Operation
 {
-  String getName();
+  String getOperation();
 
   String getOperand();
 
@@ -12,6 +12,6 @@ public interface Operation
 
   default String format(int value)
   {
-    return getName() + ": " + value;
+    return getOperation() + ": " + value;
   };
 }

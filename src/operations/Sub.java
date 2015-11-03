@@ -5,7 +5,7 @@ import lombok.Getter;
 public class Sub implements Operation
 {
   @Getter
-  private final String name = "sub";
+  private final String operation = "sub";
 
   @Getter
   private final String operand = "-";

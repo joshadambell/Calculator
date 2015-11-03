@@ -1,18 +1,18 @@
 package calculator;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
+import operations.CustomOperation;
 import operations.Operation;
 
 public class CalculationEngine
 {
-  private final List<Operation> operations;
+  private final Set<Operation> operations;
 
-  public CalculationEngine(Operation... ops)
+  public CalculationEngine(final Set<Operation> ops)
   {
-    this.operations = Arrays.asList(ops);
+    this.operations = ops;
   }
 
   public Optional<Integer> compute(String operation, int first, int second)
@@ -26,8 +26,15 @@ public class CalculationEngine
     return Optional.empty();
   }
 
+  public void createCustomOperation(String name, String operand)
+  {
+    this.operations.add(new CustomOperation(name, operand));
+  }
+
   private Optional<Operation> findOperation(String operation)
   {
-    return this.operations.stream().filter((op) -> op.getName().equals(operation)).findFirst();
+    return this.operations.stream()
+        .filter((op) -> op.getOperation().equals(operation) || op.getOperand().equals(operation))
+        .findFirst();
   }
 }

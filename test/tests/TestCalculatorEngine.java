@@ -12,6 +12,8 @@ import org.junit.Test;
 
 import calculator.CalculationEngine;
 
+import com.google.common.collect.Sets;
+
 public class TestCalculatorEngine
 {
   static CalculationEngine engine;
@@ -19,7 +21,7 @@ public class TestCalculatorEngine
   @BeforeClass
   public static void before()
   {
-    engine = new CalculationEngine(new Add(), new Sub(), new Mul());
+    engine = new CalculationEngine(Sets.newHashSet(new Add(), new Sub(), new Mul()));
   }
 
   @Test
