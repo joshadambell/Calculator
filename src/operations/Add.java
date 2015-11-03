@@ -5,7 +5,7 @@ import lombok.Getter;
 public class Add implements Operation
 {
   @Getter
-  private final String name = "add";
+  private final String operation = "add";
 
   @Getter
   private final String operand = "+";
